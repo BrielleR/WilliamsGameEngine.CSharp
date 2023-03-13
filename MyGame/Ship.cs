@@ -19,16 +19,33 @@ namespace MyGame
 		{
 		Game.RenderWindow.Draw(_sprite);
 		}
-	public override Update(Time elapsed)
-	{
-		Vector2f pos = _sprite.Position;
-		float x = pos.X;
-		float y = pos.Y;
-
-		int msElapsed = elapsed.AsMilisecond();
-
-
-	}
-
+	    public override Update(Time elapsed)
+	    {
+	    	Vector2f pos = _sprite.Position;
+	    	float x = pos.X;
+	    	float y = pos.Y;
+	    
+	    	int msElapsed = elapsed.AsMilisecond();
+	    
+	    	if(Keyboard.IsKeyPressed(Keyboard.Key.Up)) { y -= speed * msElapsed; }
+	    	if(Keyboard.IsKeyPressed(Keyboard.Key.Down)) { y += spped * msElapsed; }
+	    	if(Keyboard.IsKeyPressed(Keyboard.Key.Left)) { x -= speed * msElapsed; }
+	    	if(Keyboard.IsKeyPressed(Keyboard.Key.Right)) { x += speed * msElapsed; }
+			_sprite.Position = new Vector2f(x, y);
+	    }
 	}
 }
+        public override void Update(Time elapsed)
+        {
+            Vector2f pos = _sprite.Position;
+            float x = pos.X;
+            float y = pos.Y;
+        
+            int msElapsed = elapsed.AsMilisecond();
+        
+            if (Keyboard.IsKeyPressed(Keyboard.Key.Up)) { y -= speed * msElapsed; }
+            if (Keyboard.IsKeyPressed(Keyboard.Key.Down)) { y += spped * msElapsed; }
+            if (Keyboard.IsKeyPressed(Keyboard.Key.Left)) { x -= speed * msElapsed; }
+            if (Keyboard.IsKeyPressed(Keyboard.Key.Right)) { x += speed * msElapsed; }
+            _sprite.Position = new Vector2f(x, y);
+        }
