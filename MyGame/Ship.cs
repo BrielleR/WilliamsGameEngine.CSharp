@@ -2,6 +2,8 @@
 using SFML.System;
 using SFML.Window;
 using SFML.Graphics;
+using SFML.Audio;
+using System;
 
 
 /*
@@ -29,7 +31,7 @@ namespace MyGame
         public Ship()
 		{
 			_sprite.Texture = Game.GetTexture("Resources/ship.png");
-			_sprite.Position = new Vector2f(100, 100);            
+			_sprite.Position = new Vector2f(200, 200);            
         }
 		public override void Draw()
 		{
@@ -47,11 +49,18 @@ namespace MyGame
 	    	if (Keyboard.IsKeyPressed(Keyboard.Key.Down)) { y += Speed * msElapsed; }
 	    	if (Keyboard.IsKeyPressed(Keyboard.Key.Left)) { x -= Speed * msElapsed; }
 	    	if (Keyboard.IsKeyPressed(Keyboard.Key.Right)) { x += Speed * msElapsed; }
-			_sprite.Position = new Vector2f(x, y);
+            _sprite.Position = new Vector2f(x, y);
+            //Challenge 2
+            //{
+            //	FloatRect bounds1 = _sprite.GetGlobalBounds();
+            //	float spriteX1 = x + bounds1.Width;
+            //	float spriteY1 = y + bounds1.Height / 2.0f;
+            //	Sprite sprite1 = new Sprite(new Vector2f(spriteX1, spriteY1));
+            //	Game.CurrentScene.AddGameObject(sprite1);
+            //	
+            //}
 
-			if (_fireTimer > 0) { _fireTimer -= msElapsed; }
-            
-
+            if (_fireTimer > 0) { _fireTimer -= msElapsed; }
             if (Keyboard.IsKeyPressed(Keyboard.Key.Space) && _fireTimer <= 0)
 			{
 				_fireTimer = FireDelay;
@@ -60,6 +69,8 @@ namespace MyGame
 				float laserY = y + bounds.Height/2.0f;
 				Laser laser = new Laser(new Vector2f (laserX, laserY));
 				Game.CurrentScene.AddGameObject(laser);
+
+				//Challenge 3
 
                 float laserX2 = x + bounds.Width;
                 float laserY2 = y + bounds.Height;
@@ -71,6 +82,17 @@ namespace MyGame
                 Laser laser3 = new Laser(new Vector2f(laserX3, laserY3));
                 Game.CurrentScene.AddGameObject(laser3);
             }
+
+            if (Keyboard.IsKeyPressed(Keyboard.Key.Space) && _fireTimer <= 0)
+            {
+                _fireTimer = FireDelay;
+                FloatRect bounds = _sprite.GetGlobalBounds();
+                float meteorX = x - bounds.Width;
+                float meteorY = y - bounds.Height;
+                Meteor meteor = new Meteor(new Vector2f(meteorX, meteorY));
+                Game.CurrentScene.AddGameObject(meteor); 
+			}
+            else { Console.WriteLine("error with meteor check your code"); }
 	    }
 	}
 }
