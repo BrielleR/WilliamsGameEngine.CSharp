@@ -83,16 +83,16 @@ namespace MyGame
                 Game.CurrentScene.AddGameObject(laser3);
             }
 
-            if (Keyboard.IsKeyPressed(Keyboard.Key.Space) && _fireTimer <= 0)
-            {
-                _fireTimer = FireDelay;
-                FloatRect bounds = _sprite.GetGlobalBounds();
-                float meteorX = x - bounds.Width;
-                float meteorY = y - bounds.Height;
-                Meteor meteor = new Meteor(new Vector2f(meteorX, meteorY));
-                Game.CurrentScene.AddGameObject(meteor); 
-			}
-            else { Console.WriteLine("error with meteor check your code"); }
+   //         if (Keyboard.IsKeyPressed(Keyboard.Key.Space) && _fireTimer <= 0)
+   //         {
+   //             _fireTimer = FireDelay;
+   //             FloatRect bounds = _sprite.GetGlobalBounds();
+   //             float meteorX = x + bounds.Width;
+   //             float meteorY = y + bounds.Height;
+   //             Meteor meteor = new Meteor(new Vector2f(meteorX, meteorY));
+   //             Game.CurrentScene.AddGameObject(meteor); 
+			//}
+   //         else { Console.WriteLine("error with meteor check your code"); }
 	    }
 	}
 }

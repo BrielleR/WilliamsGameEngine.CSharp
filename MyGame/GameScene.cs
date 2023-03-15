@@ -8,6 +8,8 @@ namespace MyGame
         {
             Ship ship = new Ship();
             AddGameObject(ship);
+            Meteor_Spawner meteorSpawner = new Meteor_Spawner();
+                AddGameObject(meteorSpawner);
         }
     }
 }

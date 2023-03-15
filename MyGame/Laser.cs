@@ -40,5 +40,20 @@ namespace MyGame
                 _sprite.Position = new Vector2f(pos.X + Speed * msElapsed, pos.Y);
             }
         }
+        public override FloatRect GetCollisionRect()
+        {
+            return _sprite.GetGlobalBounds();
+        }
+        public override void HandleCollision(GameObject otherGameObject)
+        {
+            base.HandleCollision(otherGameObject);GameObject otherGameObject)
+                {
+                if (otherGameObject.HasTag("laser"))
+                {
+                    otherGameObject.MakeDead();
+                }
+                MakeDead();
+            }
+        }
     }
 }
