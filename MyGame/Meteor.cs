@@ -45,11 +45,13 @@ namespace MyGame
             return _sprite.GetGlobalBounds();
         }
         public override void HandleCollision(GameObject otherGameObject)
-        { 
+        {
             if (otherGameObject.HasTag("laser"))
-            otherGameObject.MakeDead();
+            {
+                otherGameObject.MakeDead();
+            }
+            MakeDead();
         }
-        MakeDead();
     }
 }
 
