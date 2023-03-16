@@ -11,12 +11,12 @@ namespace MyGame
 {
     internal class Meteor : GameObject
     {
-        private const float Speed = .25f;
+        private const float Speed = 0.25f;
         private readonly Sprite _sprite = new Sprite();
-        public Meteor(Vector2f pos1)
+        public Meteor(Vector2f pos)
         {
             _sprite.Texture = Game.GetTexture("Resources/meteor.png");
-            _sprite.Position = pos1;
+            _sprite.Position = pos;
             AssignTag("meteor");
             SetCollisionCheckEnabled(true);
         }
@@ -26,16 +26,17 @@ namespace MyGame
         }
         public override void Update(Time elapsed)
         {
-            int mselapsed = elapsed.AsMilliseconds();
+            int msElapsed = elapsed.AsMilliseconds();
             Vector2f pos = _sprite.Position;
             //if (pos.X > Game.RenderWindow.Size.X)
-            if (pos.X< _sprite.GetGlobalBounds().Width *-1)
+
+            if (pos.X < _sprite.GetGlobalBounds().Width * -1)
             {
                 MakeDead();
             }
             else
             {
-                int msElapsed = elapsed.AsMilliseconds();
+                //int msElapsed = elapsed.AsMilliseconds();
                 //_sprite.Position = new Vector2f(pos.X + Speed * msElapsed, pos.Y);
                 _sprite.Position = new Vector2f(pos.X - Speed * msElapsed, pos.Y);
             }
@@ -50,6 +51,7 @@ namespace MyGame
             {
                 otherGameObject.MakeDead();
             }
+
             MakeDead();
         }
     }
