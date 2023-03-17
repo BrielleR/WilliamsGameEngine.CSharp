@@ -31,15 +31,27 @@ namespace MyGame
         public Ship()
 		{
 			_sprite.Texture = Game.GetTexture("Resources/ship.png");
-			_sprite.Position = new Vector2f(200, 200);            
+			
+			_sprite.Position = new Vector2f(200, 200) /*!> (600, 800)*/;
+            //Vector2f !> (600, 800);
+            //_sprite.Position = new Vector2f(-Speed, 200);
+			//_sprite.Position = new Vector2f(_sprite.Position.X, _sprite.Position.Y);
         }
 		public override void Draw()
 		{
 		Game.RenderWindow.Draw(_sprite);
-		}
+            
+
+        }
 		public override void Update(Time elapsed)
 	    {
-	    	Vector2f pos = _sprite.Position;
+            // We don't need to update if we're not drawable.
+            //if (!IsDrawable()) return;
+
+            // Update our "timer", and change the frame if we've waited long enough.
+            //_msSinceLastFrame += elapsed.AsMilliseconds();
+
+            Vector2f pos = _sprite.Position;
 	    	float x = pos.X;
 	    	float y = pos.Y;
 
