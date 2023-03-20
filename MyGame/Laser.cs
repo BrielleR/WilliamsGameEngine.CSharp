@@ -52,8 +52,8 @@ namespace MyGame
                     otherGameObject.MakeDead();
                 }
             Vector2f pos = _sprite.Position;
-            pos.X = pos.X + _sprite.GetGlobalBounds().Width / 2.0f;
-            pos.Y = pos.Y + _sprite.GetGlobalBounds().Height / 2.0f;
+            pos.X = pos.X +(float) _sprite.GetGlobalBounds().Width / 2.0f;
+            pos.Y = pos.Y + (float)_sprite.GetGlobalBounds().Height / 2.0f;
             Explosion explosion = new Explosion(pos);
             Game.CurrentScene.AddGameObject(explosion);
             MakeDead();

@@ -1,4 +1,5 @@
 ﻿using GameEngine;
+using SFML.System;
 
 namespace MyGame
 {
@@ -8,8 +9,9 @@ namespace MyGame
         {
             Ship ship = new Ship();
             AddGameObject(ship);
-            Meteor_Spawner meteorSpawner = new Meteor_Spawner();
-                AddGameObject(meteorSpawner);
+
+            Meteor_Spawner meteor_Spawner = new Meteor_Spawner();
+            AddGameObject(meteor_Spawner);
         }
     }
 }
