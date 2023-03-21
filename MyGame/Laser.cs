@@ -14,15 +14,19 @@ namespace MyGame
 {
     internal class Laser : GameObject
     {
+        // private readonly Sound _laser = new Sound(); //laser sound
         private const float Speed = 0.25f;
         private readonly Sprite _sprite = new Sprite();
         public Laser(Vector2f pos1)
         {
             _sprite.Texture = Game.GetTexture("Resources/laser.png");
             _sprite.Position = pos1;
-            AssignTag("laser");           
-            SetCollisionCheckEnabled(true);
-        }       
+            AssignTag("laser");
+            //SetCollisionCheckEnabled(true);
+
+            //_boom.SoundBuffer = Game.GetSoundBuffer("Resources/boom.wav"); //laser sound
+            //_boom.Play(); //laser sound
+        }
         public override void Draw()
         {
             Game.RenderWindow.Draw(_sprite);
@@ -45,18 +49,18 @@ namespace MyGame
         {
             return _sprite.GetGlobalBounds();
         }
-        public override void HandleCollision(GameObject otherGameObject)
-        { 
-                if (otherGameObject.HasTag("meteor"))
-                {
-                    otherGameObject.MakeDead();
-                }
-            Vector2f pos = _sprite.Position;
-            pos.X = pos.X +(float) _sprite.GetGlobalBounds().Width / 2.0f;
-            pos.Y = pos.Y + (float)_sprite.GetGlobalBounds().Height / 2.0f;
-            Explosion explosion = new Explosion(pos);
-            Game.CurrentScene.AddGameObject(explosion);
-            MakeDead();
-        }
+        //public override void HandleCollision(GameObject otherGameObject)
+        //{ 
+        //        if (otherGameObject.HasTag("meteor"))
+        //        {
+        //            otherGameObject.MakeDead();
+        //        }
+        //    Vector2f pos = _sprite.Position;
+        //    pos.X = pos.X +(float) _sprite.GetGlobalBounds().Width / 2.0f;
+        //    pos.Y = pos.Y + (float)_sprite.GetGlobalBounds().Height / 2.0f;
+        //    Explosion explosion = new Explosion(pos);
+        //    Game.CurrentScene.AddGameObject(explosion);
+        //    MakeDead();
+        //}
     }
 }
