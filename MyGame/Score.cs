@@ -14,7 +14,7 @@ namespace MyGame
         private readonly Text _text = new Text();
         public Score(Vector2f pos)
         {
-            _text.Font = Game.GetFont("Resources/Courneff-Regular.ttf");
+            _text.Font = Game.GetFont("Resources/Courneuf-Regular.ttf");
             _text.Position = pos;
             _text.CharacterSize = 24;
             _text.FillColor = Color.White;

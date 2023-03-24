@@ -9,12 +9,13 @@ using SFML.Window;
 using SFML.Graphics;
 using System.Runtime.CompilerServices;
 using System.Linq.Expressions;
+using SFML.Audio;
 
 namespace MyGame
 {
     internal class Laser : GameObject
     {
-        // private readonly Sound _laser = new Sound(); //laser sound
+        private readonly Sound _boom = new Sound(); //laser sound
         private const float Speed = 0.25f;
         private readonly Sprite _sprite = new Sprite();
         public Laser(Vector2f pos1)
@@ -24,8 +25,8 @@ namespace MyGame
             AssignTag("laser");
             //SetCollisionCheckEnabled(true);
 
-            //_boom.SoundBuffer = Game.GetSoundBuffer("Resources/boom.wav"); //laser sound
-            //_boom.Play(); //laser sound
+            _boom.SoundBuffer = Game.GetSoundBuffer("Resources/boom.wav"); //laser sound
+            _boom.Play(); //laser sound
         }
         public override void Draw()
         {
