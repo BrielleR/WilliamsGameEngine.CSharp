@@ -37,9 +37,10 @@ namespace MyGame
 
 
         }
+        
         public override void Update(Time elapsed)
         {          
-            GameScene.Position = new Vector2f(600, 800) /*!> (600, 800)*/;
+            GameScene.Position = new Vector2f(200, 300) /*!> (600, 800)*/;
             Vector2f pos = GameScene.Position;
             float x = pos.X;
             float y = pos.Y;
@@ -52,5 +53,9 @@ namespace MyGame
             if (Keyboard.IsKeyPressed(Keyboard.Key.Right)) { x += Speed * msElapsed; }
             GameScene.Position = new Vector2f(x, y);
         }
+        //public override void Draw()
+        //{
+        //    Game.RenderWindow.Draw(GameScene);
+        //}
     }
 }

@@ -40,8 +40,6 @@ namespace MyGame
 		public override void Draw()
 		{
 		Game.RenderWindow.Draw(_sprite);
-            
-
         }
 		public override void Update(Time elapsed)
 	    {

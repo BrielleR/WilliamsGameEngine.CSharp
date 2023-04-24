@@ -6,7 +6,7 @@ namespace MyGame
 {
     internal class GameScene : Scene
     {
-        //private const float Speed = 0.3f;
+        private const float Speed = 0.3f;
         private int _lives = 3;
         private int _score;
         internal static Vector2f Position;
@@ -46,12 +46,7 @@ namespace MyGame
         }
         //public override void Update(Time elapsed)
         //{
-        //    // We don't need to update if we're not drawable.
-        //    //if (!IsDrawable()) return;
-
-        //    // Update our "timer", and change the frame if we've waited long enough.
-        //    //_msSinceLastFrame += elapsed.AsMilliseconds();
-        //    GameScene.Position = new Vector2f(200, 200) /*!> (600, 800)*/;
+        //    GameScene.Position = new Vector2f(200, 300) /*!> (600, 800)*/;
         //    Vector2f pos = GameScene.Position;
         //    float x = pos.X;
         //    float y = pos.Y;
